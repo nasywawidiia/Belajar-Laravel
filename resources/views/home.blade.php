@@ -121,17 +121,17 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="nama" class="form-label">Nama</label>
-                                <input type="text" class="form-control" id="nama" name="nama" value="{{old('nama')}}" >
+                                <input type="text" class="form-control" id="nama" name="nama" >
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" value="{{old('email')}}">
+                                <input type="email" class="form-control" id="email" name="email" >
                             </div>
                             <div class="mb-3">
                                 <label for="pertanyaan" class="form-label">Pertanyaan</label>
-                                <textarea class="form-control" id="pertanyaan" name="pertanyaan" rows="4" >{{old('pertanyaan')}}</textarea>
+                                <textarea class="form-control" id="pertanyaan" name="pertanyaan" rows="4" ></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">Kirim Pertanyaan</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
                 </div>
