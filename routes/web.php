@@ -8,6 +8,10 @@ use App\Http\Controllers\MatakuliahController;
 
 use App\Http\Controllers\HomeController;
 
+use App\Http\Controllers\QuestionController;
+
+
+
 Route::get('/pcr', function () {
     return 'Selamat Datang di Website Kampus PCR!';
 });
@@ -44,3 +48,11 @@ Route::get('/mkdestroy', [MatakuliahController::class, 'destroy']);
 Route::get('/matakuliah/show/{id?}', [MatakuliahController::class, 'show']);
 
 Route::get('/home', [HomeController::class, 'index']);
+
+//-------------------------------------------------------------------------------------------------------
+Route::post('question/store', [QuestionController::class, 'store'])
+		->name('question.store');
+
+        Route::get('/home', function () {
+    return view('home');
+});
