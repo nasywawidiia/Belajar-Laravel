@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'Dancing';
+    src: url('../fonts/Dancing.ttf');
+}
+
+.font-custom{
+    font-family: 'Dancing';
+}
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    font-size: 16px;
+}
+h1 {
+    color: #007bff;
+}

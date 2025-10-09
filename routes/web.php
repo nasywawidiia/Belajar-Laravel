@@ -10,7 +10,7 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\QuestionController;
 
-
+use App\Http\Controllers\DashboardController;
 
 Route::get('/pcr', function () {
     return 'Selamat Datang di Website Kampus PCR!';
@@ -56,3 +56,5 @@ Route::post('question/store', [QuestionController::class, 'store'])
 Route::get('/home', function () {
     return view('home');
 });
+
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
