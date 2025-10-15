@@ -26,29 +26,31 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        // $data['nama']       = $request->nama;
-        // $data['email']      = $request->email;
-        // $data['pertanyaan'] = $request->pertanyaan;
+    $request->validate([
+        'nama'       => 'required|min:3|max:50',
+        'email'      => 'required|email',
+        'pertanyaan' => 'required|min:10|max:300',
+    ], [
+        'nama.required'       => "Nama tidak boleh kosong",
+        'email.required'      => "Email tidak boleh kosong",
+        'pertanyaan.required' => "Pertanyaan tidak boleh kosong",
+    ]);
 
-        // return view('home-question-respon', $data);
+    $nama       = $request->input('nama');
+    $email      = $request->input('email');
+    $pertanyaan = $request->input('pertanyaan');
 
-        $request->validate([
-            'nama'       => 'required|min:5|max:50',
-            'email'      => 'required|email',
-            'pertanyaan' => 'required|min:10|max:300',
-        ], [
-            'nama.required'         => "Nama Tidah boleh kosong",
-            'email.required'           => "Email Tidak valid",
-            'pertanyaan.required' => "pertanyaan Tidak valid",
-        ]);
+    // Buat pesan seperti contoh
+    $info = "
+        Terimakasih <strong>{$nama}</strong>! Pertanyaan ini: 
+        <strong>{$pertanyaan}</strong> akan segera direspon melalui email 
+        <a href='mailto:{$email}'>{$email}</a>
+    ";
 
-        $nama       = $request->input('nama');
-        $email      = $request->input('email');
-        $pertanyaan = $request->input('pertanyaan');
-
-        //return view('home-question-respon', compact('nama', 'email', 'pertanyaan'));
-        return redirect()->back()->with('info', 'Makasih yaa udah mau isi form nyaa! Data kamu udah kesimpan nihh');
+    // Redirect ke halaman home dengan pesan flash
+    return redirect()->back()->with('info', $info);
     }
+
 
     /**
      * Display the specified resource.
