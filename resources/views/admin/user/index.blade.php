@@ -22,7 +22,7 @@
     <div class="d-flex justify-content-between w-100 flex-wrap">
         <div class="mb-3 mb-lg-0">
             <h1 class="h4">Data User</h1>
-            <p class="mb-0">List data seluruh pengguna sistem.</p>
+            <p class="mb-0">List data seluruh user</p>
         </div>
         <div>
             <a href="{{ route('user.create') }}" class="btn btn-success text-white">
@@ -49,6 +49,7 @@
                             <tr>
                                 <th class="border-0">Name</th>
                                 <th class="border-0">Email</th>
+                                <th class="border-0">Password</th>
                                 <th class="border-0 rounded-end">Action</th>
                             </tr>
                         </thead>
@@ -57,6 +58,7 @@
                                 <tr>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->email }}</td>
+                                    <td>{{ $item->password }}</td>
                                     <td>
                                         <!-- Tombol Edit -->
                                         <a href="{{ route('user.edit', $item->id) }}" class="btn btn-info btn-sm">
