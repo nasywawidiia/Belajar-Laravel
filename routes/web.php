@@ -16,6 +16,11 @@ use App\Http\Controllers\PelangganController;
 
 use App\Http\Controllers\AuthController;
 
+use App\Http\Controllers\ProfileController;
+
+use App\Http\Controllers\MultipleuploadsController;
+
+
 Route::get('/pcr', function () {
     return 'Selamat Datang di Website Kampus PCR!';
 });
@@ -71,3 +76,14 @@ Route::resource('user', App\Http\Controllers\UserController::class);
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/', function () {
+    return redirect()->route('profile.edit');
+});
+Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+Route::delete('/profile/delete', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+Route::get('/multipleuploads', 'MultipleuploadsController@index')->name('uploads');
+Route::post('/save','MultipleuploadsController@store')->name('uploads.store');
