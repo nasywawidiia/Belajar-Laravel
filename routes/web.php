@@ -34,14 +34,14 @@ Route::get('/mkdestroy', [MatakuliahController::class, 'destroy']);
 Route::get('/matakuliah/show/{id?}', [MatakuliahController::class, 'show']);
 
 
-// ================= GUEST ONLY =================
+// GUEST ONLY 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'index'])->name('login'); // ganti showLoginForm → index
     Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 });
 
 
-// ================= AUTH ONLY =================
+// AUTH ONLY 
 Route::middleware('auth')->group(function () {
 
     // logout
@@ -67,10 +67,10 @@ Route::middleware('auth')->group(function () {
 });
 
 
-// ================= DEFAULT REDIRECT =================
+// DEFAULT REDIRECT
 Route::get('/', fn() => redirect()->route('dashboard'));
 
 
-// ================= MULTIPLE UPLOADS =================
+// MULTIPLE UPLOADS
 Route::get('/multipleuploads', [MultipleuploadsController::class, 'index'])->name('uploads');
 Route::post('/save', [MultipleuploadsController::class, 'store'])->name('uploads.store');
