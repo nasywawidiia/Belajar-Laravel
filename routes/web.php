@@ -14,7 +14,6 @@ use App\Http\Controllers\DashboardController;
 
 use App\Http\Controllers\PelangganController;
 
-use App\Http\Controllers\AuthController;
 
 Route::get('/pcr', function () {
     return 'Selamat Datang di Website Kampus PCR!';
@@ -67,6 +66,7 @@ Route::resource('pelanggan', PelangganController::class);
 
 Route::resource('user', App\Http\Controllers\UserController::class);
 
+use App\Http\Controllers\AuthController;
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
